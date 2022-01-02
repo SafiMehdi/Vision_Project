@@ -32,7 +32,7 @@ public class ListTodoServlet extends HttpServlet {
 		
 		HttpClient client = HttpClient.newHttpClient();
 		HttpRequest request1 = HttpRequest.newBuilder()
-				.uri(URI.create("http://localhost:8080/person"))
+				.uri(URI.create("http://localhost:8080/get_specialty"))
 				.build();
 		
 		try {
@@ -40,20 +40,15 @@ public class ListTodoServlet extends HttpServlet {
 			request.setAttribute("todos", todoService.retrieveTodos());
 			
 			String data = response_http.body().toString();
-			
 			JSONParser parser = new JSONParser();
 			try {
 				JSONObject json = (JSONObject) parser.parse(data);
-				request.setAttribute("data", json.get("city"));
-				request.getRequestDispatcher("/WEB-INF/views/list-todos.jsp").forward(request, response);
-				
+				request.setAttribute("data", json.get("specialty"));
+				request.getRequestDispatcher("/WEB-INF/views/list-todos.jsp").forward(request, response);	
 			} catch (ParseException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
 		} catch (IOException | InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

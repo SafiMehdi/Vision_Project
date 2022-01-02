@@ -15,32 +15,13 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 
 import model.User;
-
+import database_service.Db_services;
 
 
 public class LoginService {
-
-		public java.sql.Connection connect(){
-			try {
-				Class.forName("com.mysql.cj.jdbc.Driver");
-				System.out.println("Driver O.K.");
-				
-				String url ="jdbc:mysql://localhost:3306/java";
-				String user = "root";
-				String passwd = "ismTHEyh123*";
-			
-				java.sql.Connection con = DriverManager.getConnection(url,user,passwd);
-				System.out.println("Connexion effective !");
-				
-				return con;
-			}catch(Exception e) {
-				e.printStackTrace();
-				return null;
-			}
-		}
 		
 		public User getUser(String email,String enc_password) {
-			java.sql.Connection con = this.connect();
+			java.sql.Connection con = Db_services.connect();
 			User user = new User();
 			try {
 				String sql = "SELECT * FROM user WHERE email = '" + email + "' AND password = '"+ enc_password +"'";
@@ -71,7 +52,7 @@ public class LoginService {
 		} 
 		
 		public boolean isUserValid(String email,String password) {
-			java.sql.Connection con = this.connect();
+			java.sql.Connection con = Db_services.connect();
 			boolean found = false;
 			try {
 				String sql = "SELECT * FROM user WHERE email = '" + email + "'";
@@ -101,22 +82,6 @@ public class LoginService {
 				return false;
 			}
 			
-		}
-		
-		public boolean insert(User user) {
-			java.sql.Connection con = this.connect();
-		  try { 
-			  String sqlInsert = "INSERT INTO user (first_name,last_name,email,password,role,saltvalue) VALUES ('" + user.getFirst_name() + "','" + user.getLast_name() + "','" + user.getEmail() + "','" + user.getPassword() + "','user','" + user.getsaltvalue() + "')";
-			  System.out.println(sqlInsert);
-			  Statement smtinsert = con.createStatement();
-			  smtinsert.executeUpdate(sqlInsert);
-			  System.out.println("the insertion succeded"); 
-			  return true;
-		  }catch(Exception e) {
-			  e.printStackTrace(); 
-			  System.out.println("the insertion failed");
-			  return false;
-		  }
 		}
 }
 

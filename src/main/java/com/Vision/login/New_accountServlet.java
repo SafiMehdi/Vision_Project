@@ -1,6 +1,7 @@
 package com.Vision.login;
 
 import java.io.IOException;
+import database_service.Db_services;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,7 +30,7 @@ public class New_accountServlet extends HttpServlet {
 		
 		  User user = new User(first_name,last_name,encryptedpassword,email,saltvalue);
 		  
-		  boolean status = userService.insert(user);
+		  boolean status = Db_services.insert_User(user);
 		  
 		  if (status) { 
 			  User new_user = userService.getUser(email, encryptedpassword);
@@ -38,7 +39,7 @@ public class New_accountServlet extends HttpServlet {
 			  request.getSession().setAttribute("email",email);
 			  request.getSession().setAttribute("role",new_user.role);
 			  request.getSession().setAttribute("ID",new_user.getID());
-			  response.sendRedirect("/list-todos.do"); 
+			  response.sendRedirect("/home.do"); 
 			  }else{
 				  request.setAttribute("errorMessage", "Coudld not add you to the plateform");
 				  request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);

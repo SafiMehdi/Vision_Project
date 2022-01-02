@@ -1,0 +1,7 @@
+0:0:0:0:0:0:0:1 - - [03/Jan/2022:00:34:14 +0100] "GET /Job_On_Demand.do HTTP/1.1" 200 4719 http-bio-8081-exec-7 16
+0:0:0:0:0:0:0:1 - - [03/Jan/2022:00:34:14 +0100] "GET /assets/css/signupStyle.css HTTP/1.1" 304 - http-bio-8081-exec-7 5
+0:0:0:0:0:0:0:1 - - [03/Jan/2022:00:34:14 +0100] "GET /assets/css/assets/images/bg.png HTTP/1.1" 404 1013 http-bio-8081-exec-9 2
+0:0:0:0:0:0:0:1 - - [03/Jan/2022:00:34:32 +0100] "POST /Job_On_Demand.do HTTP/1.1" 302 - http-bio-8081-exec-9 437
+0:0:0:0:0:0:0:1 - - [03/Jan/2022:00:34:32 +0100] "GET /home.do HTTP/1.1" 200 6945 http-bio-8081-exec-9 11
+0:0:0:0:0:0:0:1 - - [03/Jan/2022:00:35:09 +0100] "GET /Job_On_Demand.do HTTP/1.1" 500 3577 http-bio-8081-exec-9 89
+0:0:0:0:0:0:0:1 - - [03/Jan/2022:00:35:31 +0100] "GET /Job_On_Demand.do HTTP/1.1" 200 1119 http-bio-8081-exec-3 329
