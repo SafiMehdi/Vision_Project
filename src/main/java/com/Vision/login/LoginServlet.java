@@ -15,25 +15,24 @@ public class LoginServlet extends HttpServlet {
 	private TodoService todoService = new TodoService();
 	
 
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(
-				request, response);
+	protected void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
-		String email = request.getParameter("login");
+		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-
+		
 		boolean isUserValid = userValidationService.isUserValid(email, password);
-
-		if (isUserValid) {
-			request.getSession().setAttribute("first_name", email);
-			response.sendRedirect("/list-todos.do");
-		} else {
-			request.setAttribute("errorMessage", "Invalid Credentials!");
-			request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
-		}
+		  
+		  if (isUserValid) { 
+		  request.getSession().setAttribute("first_name", email);
+		  response.sendRedirect("/list-todos.do"); 
+		  }else{
+		  request.setAttribute("errorMessage", "Invalid Credentials!");
+		  request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request,response); 
+		  }
+		 
 	}
 
 }

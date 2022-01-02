@@ -1,10 +1,15 @@
 package com.Vision.todo;
 
 import java.io.BufferedInputStream;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
@@ -26,20 +31,32 @@ public class ListTodoServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpClient client = HttpClient.newHttpClient();
-		HttpRequest request1 = HttpRequest.newBuilder().uri(URI.create("http://localhost:8080/myresource")).build();
+		HttpRequest request1 = HttpRequest.newBuilder()
+				.uri(URI.create("http://localhost:8080/person"))
+				.build();
 		
 		try {
 			HttpResponse response_http = client.send(request1, HttpResponse.BodyHandlers.ofString());
 			request.setAttribute("todos", todoService.retrieveTodos());
-			request.setAttribute("data", response_http.body());
-			request.getRequestDispatcher("/WEB-INF/views/list-todos.jsp").forward(request, response);
+			
+			String data = response_http.body().toString();
+			
+			JSONParser parser = new JSONParser();
+			try {
+				JSONObject json = (JSONObject) parser.parse(data);
+				request.setAttribute("data", json.get("city"));
+				request.getRequestDispatcher("/WEB-INF/views/list-todos.jsp").forward(request, response);
+				
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
 		} catch (IOException | InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		//request.setAttribute("todos", todoService.retrieveTodos());
-		//request.getRequestDispatcher("/WEB-INF/views/list-todos.jsp").forward(request, response);
 	}
 
 }
