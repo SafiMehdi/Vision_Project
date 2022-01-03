@@ -80,7 +80,7 @@
                                             <div></div>
                                             <div></div>
                                         </div>
-                                        <a  href="skillsOnDemand.html"class="hex-content">
+                                        <a  href="<c:url value="/Skills_On_Demand.do"/>"class="hex-content">
                                             <span class="hex-content-inner">
                                                 <span class="icon">
                                                     <i class="fa fa-braille"></i>
@@ -102,7 +102,7 @@
                                             <div></div>
                                             <div></div>
                                         </div>
-                                        <a href="specialty/specialty.html" class="hex-content">
+                                        <a href="<c:url value="/Specialty.do"/>" class="hex-content">
                                             <span class="hex-content-inner">
                                                 <span class="icon">
                                                     

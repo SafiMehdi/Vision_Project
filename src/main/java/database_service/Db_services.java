@@ -56,8 +56,8 @@ public class Db_services {
 			ResultSet rs = smt.executeQuery(sql);
 			while(rs.next()) {
 				Map<String, String> map = new HashMap<>();
-				map.put("label", rs.getString("label"));
 				map.put("description", rs.getString("description"));
+				map.put("label", rs.getString("label"));
 				jobs_array.add(map);
 			}
 			return jobs_array;
