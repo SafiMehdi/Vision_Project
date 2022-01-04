@@ -17,7 +17,6 @@ body{
 	max-height: 400px;
 	overflow-x: hidden;
   	overflow-y: scroll;
-	overflow-y: scroll;
     padding-right: 17px; /* Increase/decrease this value for cross-browser compatibility */
     box-sizing: content-box; 
  

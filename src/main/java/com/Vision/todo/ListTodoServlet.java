@@ -31,23 +31,27 @@ public class ListTodoServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpClient client = HttpClient.newHttpClient();
-		HttpRequest request1 = HttpRequest.newBuilder()
-				.uri(URI.create("http://localhost:8080/get_specialty"))
-				.build();
 		
+		HttpRequest http_request = HttpRequest.newBuilder()
+				  .uri(URI.create("http://localhost:8080/myresource"))
+				  .headers("Content-Type", "text/plain;charset=UTF-8")
+				  .POST(HttpRequest.BodyPublishers.ofString("Sample request body"))
+				  .build();	
 		try {
-			HttpResponse response_http = client.send(request1, HttpResponse.BodyHandlers.ofString());
-			request.setAttribute("todos", todoService.retrieveTodos());
+			HttpResponse response_http = client.send(http_request, HttpResponse.BodyHandlers.ofString());
 			
-			String data = response_http.body().toString();
-			JSONParser parser = new JSONParser();
-			try {
-				JSONObject json = (JSONObject) parser.parse(data);
-				request.setAttribute("data", json.get("specialty"));
-				request.getRequestDispatcher("/WEB-INF/views/list-todos.jsp").forward(request, response);	
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}
+			//String data = response_http.body();
+			System.out.println("--------------------------------------------------------");
+			System.out.println("hani hnaaaaa");
+			System.out.println(response_http.body());
+			System.out.println("--------------------------------------------------------");
+			
+			/*
+			 * JSONParser parser = new JSONParser(); try { JSONObject json = (JSONObject)
+			 * parser.parse(data); request.setAttribute("data", json.get("specialty"));
+			 * request.getRequestDispatcher("/WEB-INF/views/list-todos.jsp").forward(
+			 * request, response); } catch (ParseException e) { e.printStackTrace(); }
+			 */
 		} catch (IOException | InterruptedException e) {
 			e.printStackTrace();
 		}

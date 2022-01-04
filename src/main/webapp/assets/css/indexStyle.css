@@ -79,19 +79,22 @@ body {
     opacity: 0;
   }
 }
-
-
+.pic{
+	width:150px;
+	height:150px;
+	border-radius: 100px;
+}
 .pic-ctn > img {
   position: absolute;
   top: 0;
-  left: calc(50% - 100px);
+  left: calc(100% - 100px);
   opacity: 0;
   animation: display 10s infinite;
 }
 
-img:nth-child(2) {
+.pic my-5 ms-3:nth-child(2) {
   animation-delay: 2s;
 }
-img:nth-child(3) {
+.pic my-5 ms-3:nth-child(3) {
   animation-delay: 4s;
 }

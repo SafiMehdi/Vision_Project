@@ -80,11 +80,20 @@
 				        </div>	        
 				    </div>
 				</div> -->
-				<div class="pic-ctn">
-				    <img src="https://picsum.photos/200/300?t=1" alt="" class="pic">
-				    <img src="https://picsum.photos/200/300?t=2" alt="" class="pic">
-				    <img src="https://picsum.photos/200/300?t=3" alt="" class="pic">
+				<div>
+					<div  class="pic-ctn">
+		               <img src="assets/images/team/ismail.JPG" alt="" class="pic my-5 ms-3">
+				   </div>
+				   
+				  <div  class="pic-ctn">
+		              <img src="assets/images/team/nizarst.jpg" alt="" class="pic my-5 ms-3">
+				   </div>
+				   
+				   <div  class="pic-ctn">
+		               <img src="assets/images/team/mehdi.jpg" alt="" class="pic my-5 ms-3">
+				   </div>
 				</div>
+				
 		    </div>		    
 		  </div>
 				

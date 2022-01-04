@@ -1,6 +1,9 @@
 package com.Vision.specialty;
 
 import java.io.IOException;
+import Models.*;
+import weka.core.Instances;
+
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -55,19 +58,41 @@ public class Specialty extends HttpServlet {
         		}
         		arrayToBeSent.add(String.valueOf(boolToInt(bool)));
 			}
-		System.out.println("----------------------------------------------------------------");
-		System.out.println(arrayToBeSent);
-		System.out.println("----------------------------------------------------------------");
-        
-        
-        response.setContentType("text/html");
 
-        // Actual logic goes here.
-        PrintWriter out = response.getWriter();
-        out.println("skills are a khay brothers" + arrayToBeSent);
+		//double[] vals = new double[data.numAttributes()];
+
+		double[] vals = new double[arrayToBeSent.size()];
+		
+		for(int i=0; i< arrayToBeSent.size(); i++) {
+			vals[i] = Double.parseDouble(arrayToBeSent.get(i));
+		}
+		
+		System.out.println(vals);
+        
+		Classification weka;
+		try {
+
+			weka = new Classification("/home/ismailyh/Desktop/Data_Linux_In_Shuffled.csv");
+			weka.selectFeatures();
+			weka.buildDecisionTree();
+			String result = weka.classifyData(vals);
+			PrintWriter out = response.getWriter();
+			response.setContentType("text");
+			out.println(result);
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		/*
+		 * response.setContentType("text/html");
+		 * 
+		 * // Actual logic goes here. PrintWriter out = response.getWriter();
+		 * out.println("skills are a khay brothers" + arrayToBeSent);
+		 */
        
 	}
-	static int boolToInt(Boolean b) {
+	static double boolToInt(Boolean b) {
 	    return b.compareTo(false);
 	}
 

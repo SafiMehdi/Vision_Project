@@ -54,11 +54,9 @@
 														<form class="form-horizontal" action="" method="post">
 														<div class="form-group">
 															<input type="email" name="email" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off">
-															<i class="input-icon fas fa-at"></i>
 														</div>	
 														<div class="form-group mt-2">
 															<input type="password" name="password" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off">
-															<i class="input-icon fas fa-lock"></i>
 														</div>
 														<button type="submit" class="btn mt-4">submit</button>
 			                            				<p class="mb-0 mt-4 text-center"><a href="#0" class="link">Forgot your password?</a></p>
@@ -73,19 +71,15 @@
 														<form class="form-horizontal" action="<c:url value="/New_account"/>" method="post">
 														<div class="form-group">
 															<input type="text" name="first_name" class="form-style" placeholder="Your First Name" id="logfname" autocomplete="off">
-															<i class="input-icon fas fa-user"></i>
 														</div>	
 														<div class="form-group mt-2">
 															<input type="text" name="last_name" class="form-style" placeholder="Your Last Name" id="loglname" autocomplete="off">
-															<i class="input-icon fas fa-user"></i>
 														</div>
 														<div class="form-group mt-2">
 															<input type="email" name="email" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off">
-															<i class="input-icon fas fa-at"></i>
 														</div>	
 														<div class="form-group mt-2">
 															<input type="password" name="password" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off">
-															<i class="input-icon fas fa-lock"></i>
 														</div>
 														<button type="submit" class="btn mt-4">submit</button>
 														</form>
