@@ -8,12 +8,14 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+import database_service.Db_services;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.json.JSONObject;
 
 import com.google.gson.Gson;
 
@@ -76,20 +78,22 @@ public class Specialty extends HttpServlet {
 			weka.selectFeatures();
 			weka.buildDecisionTree();
 			String result = weka.classifyData(vals);
+			
+			String desc = Db_services.get_desc(result);
+			
+			JSONObject jo = new JSONObject();
+			jo.put("job", result);
+			jo.put("description", desc);
+			System.out.println("-----------------------------------------------------");
+			System.out.println(jo.toString());
+			System.out.println("-----------------------------------------------------");
 			PrintWriter out = response.getWriter();
 			response.setContentType("text");
-			out.println(result);
+			out.println(jo.toString());
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
-		/*
-		 * response.setContentType("text/html");
-		 * 
-		 * // Actual logic goes here. PrintWriter out = response.getWriter();
-		 * out.println("skills are a khay brothers" + arrayToBeSent);
-		 */
        
 	}
 	static double boolToInt(Boolean b) {

@@ -126,8 +126,8 @@
   			            <div class="d-block main-content">
 						  	<lottie-player src="assets/images/Growth Animation/Growth Coloured/Growth Animation.json" background="transparent"  speed="1"  class="img-fluid" loop  autoplay></lottie-player>  
 			              <div class="content-text p-4">			                
-			                <h3 class="mb-4">Nta khask tkhdm f hadchi : full stack</h3>
-			                <p class="mb-4">All their equipment and instruments are alive. The sky was this is cloudless and of a deep dark blue. A shining crescent far beneath the flying vessel.</p>
+			                <h3 class="mb-4 job">Nta khask tkhdm f hadchi : full stack</h3>
+			                <p class="mb-4 jobdesc">All their equipment and instruments are alive. The sky was this is cloudless and of a deep dark blue. A shining crescent far beneath the flying vessel.</p>
 			              </div>
 			            </div>
 			          </div>
@@ -156,9 +156,10 @@
 				    	skills : JSON.stringify(selected) 
 				    },
 				    success: function(result){
-				    	console.log("hahouwa result akhuya : " + result);
-				    	document.getElementById("show").click();
-				    	
+				    	const obj = JSON.parse(result);
+				    	$(".job").text(obj.job);
+				    	$(".jobdesc").text(obj.description);
+				    	document.getElementById("show").click();	
 					},
 					error: function(xhr, status, error) {
 						console.log("warah error akhua");

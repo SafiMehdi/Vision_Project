@@ -67,4 +67,47 @@ public class Db_services {
 			return jobs_array;
 		}
 	}
+	
+	public static ArrayList<Map<String, String>> get_skills() throws SQLException {
+		java.sql.Connection con = Db_services.connect();
+		ArrayList<Map<String, String>> jobs_array = new ArrayList<Map<String, String>>();
+		try {
+			String sql = "SELECT * FROM jobskills ORDER BY valueSkill DESC ";
+			//System.out.println(sql);
+			Statement smt = con.createStatement();
+			ResultSet rs = smt.executeQuery(sql);
+			while(rs.next()) {
+				Map<String, String> map = new HashMap<>();
+				map.put("description", rs.getString("descSkill"));
+				map.put("label", rs.getString("keySkill"));
+				jobs_array.add(map);
+			}
+			return jobs_array;
+		}catch(Exception e) {
+			System.out.println("------------------------------------------------------------------");
+			System.out.println("the selection failed");
+			return jobs_array;
+		}
+	}
+	
+	public static String get_desc(String job) throws SQLException {
+		java.sql.Connection con = Db_services.connect();
+		String desc = " ";
+		try {
+			String sql = "SELECT description FROM jobs WHERE label = '" + job + "'";
+			System.out.println(sql);
+			Statement smt = con.createStatement();
+			ResultSet rs = smt.executeQuery(sql);
+			
+			while(rs.next()) {	
+				desc = rs.getString("description");
+			}
+			return desc;
+		}catch(Exception e) {
+			System.out.println("------------------------------------------------------------------");
+			System.out.println("the selection failed");
+			return desc;
+		}
+		
+	} 
 }
