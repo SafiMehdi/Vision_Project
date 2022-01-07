@@ -1,0 +1,16 @@
+0:0:0:0:0:0:0:1 - - [07/Jan/2022:12:56:52 +0100] "GET / HTTP/1.1" 200 4987 http-bio-8081-exec-1 80
+0:0:0:0:0:0:0:1 - - [07/Jan/2022:12:56:52 +0100] "GET /assets/css/indexStyle.css HTTP/1.1" 304 - http-bio-8081-exec-3 10
+0:0:0:0:0:0:0:1 - - [07/Jan/2022:12:56:52 +0100] "GET /assets/images/team/ismail.JPG HTTP/1.1" 200 338718 http-bio-8081-exec-5 7
+0:0:0:0:0:0:0:1 - - [07/Jan/2022:12:56:52 +0100] "GET /assets/images/WelcomeColour/welcome.png HTTP/1.1" 200 116710 http-bio-8081-exec-2 14
+0:0:0:0:0:0:0:1 - - [07/Jan/2022:12:56:52 +0100] "GET /assets/images/team/nizarst.jpg HTTP/1.1" 200 150531 http-bio-8081-exec-6 4
+0:0:0:0:0:0:0:1 - - [07/Jan/2022:12:56:52 +0100] "GET /assets/images/wing1.png HTTP/1.1" 200 103227 http-bio-8081-exec-4 22
+0:0:0:0:0:0:0:1 - - [07/Jan/2022:12:56:52 +0100] "GET /assets/images/team/mehdi.jpg HTTP/1.1" 200 105447 http-bio-8081-exec-8 8
+0:0:0:0:0:0:0:1 - - [07/Jan/2022:12:56:52 +0100] "GET /assets/images/logo.png HTTP/1.1" 304 - http-bio-8081-exec-7 10
+0:0:0:0:0:0:0:1 - - [07/Jan/2022:12:56:53 +0100] "GET /favicon.ico HTTP/1.1" 404 973 http-bio-8081-exec-8 8
+0:0:0:0:0:0:0:1 - - [07/Jan/2022:12:56:54 +0100] "GET /login.do;jsessionid=475FA2FBDFC8EC26FA855B107FCD54C6 HTTP/1.1" 200 4399 http-bio-8081-exec-8 18
+0:0:0:0:0:0:0:1 - - [07/Jan/2022:12:56:54 +0100] "GET /assets/css/signupStyle.css HTTP/1.1" 304 - http-bio-8081-exec-8 2
+0:0:0:0:0:0:0:1 - - [07/Jan/2022:12:56:54 +0100] "GET /assets/css/assets/images/bg.png HTTP/1.1" 404 1013 http-bio-8081-exec-8 1
+0:0:0:0:0:0:0:1 - - [07/Jan/2022:12:56:55 +0100] "GET /assets/images/Login%20Animation/Lottie%20Animation/Login%20Colored.json HTTP/1.1" 200 424887 http-bio-8081-exec-8 7
+0:0:0:0:0:0:0:1 - - [07/Jan/2022:12:57:07 +0100] "POST /login.do;jsessionid=475FA2FBDFC8EC26FA855B107FCD54C6 HTTP/1.1" 302 - http-bio-8081-exec-8 899
+0:0:0:0:0:0:0:1 - - [07/Jan/2022:12:57:07 +0100] "GET /home.do HTTP/1.1" 200 6935 http-bio-8081-exec-8 9
+0:0:0:0:0:0:0:1 - - [07/Jan/2022:12:57:07 +0100] "GET /assets/css/homeStyle.css HTTP/1.1" 304 - http-bio-8081-exec-8 1
